@@ -1,0 +1,4 @@
+[Binary]
+/^http://binary.tests/(tests|external)/(.*)/ => bin: ~/node_modules/.bin/dresscodejs ~/test/$1/$2
+    $SetResponseHeader Content-Type: application/javascript; charset=UTF-8
+binary.tests/ => file://~/test/

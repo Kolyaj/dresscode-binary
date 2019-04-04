@@ -1,0 +1,16 @@
+{
+    "name": "dresscode-binary",
+    "version": "0.0.1",
+    "author": {
+        "name": "Kolyaj",
+        "email": "kolyaj@yandex.ru",
+        "url": "https://github.com/Kolyaj"
+    },
+    "dependencies": {
+        "dresscode-bricks": "^0.2.3",
+        "dresscode-ponyfills": "^1.0.2"
+    },
+    "devDependencies": {
+        "dresscodejs": "^1.0.3"
+    }
+}
