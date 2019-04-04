@@ -6,6 +6,11 @@
         "email": "kolyaj@yandex.ru",
         "url": "https://github.com/Kolyaj"
     },
+    "homepage": "https://github.com/Kolyaj/dresscode-binary",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Kolyaj/dresscode-binary.git"
+    },
     "dependencies": {
         "dresscode-bricks": "^0.2.3",
         "dresscode-ponyfills": "^1.0.2"
