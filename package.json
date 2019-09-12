@@ -12,8 +12,8 @@
         "url": "git://github.com/Kolyaj/dresscode-binary.git"
     },
     "dependencies": {
-        "dresscode-bricks": "^0.2.3",
-        "dresscode-ponyfills": "^1.0.2"
+        "dresscode-bricks": "latest",
+        "dresscode-ponyfills": "latest"
     },
     "devDependencies": {
         "dresscodejs": "^1.0.3"
