@@ -87,3 +87,13 @@ describe('Binary.Enum', function() {
     check('Numeric values', new Binary.Enum([1, 2, 3]), 3);
     check('Numeric enum encodes string value', new Binary.Enum([1, 2, 3]), '2', TypeError);
 });
+
+describe('Binary.ObjectId', function() {
+    check('Valid MongoDB ObjectId', new Binary.ObjectId(), '5bdad1bb9451b44a137f2f53');
+    check('ObjectId with many zeros', new Binary.ObjectId(), '000000000000000000000000');
+    check('Invalid length of ObjectId', new Binary.ObjectId(), 'fff', TypeError);
+    check('Invalid symbols in ObjectId', new Binary.ObjectId(), '5bdad1bb9451b44a137f2f5g', TypeError);
+    it('Length of code', function() {
+        chai.assert.equal(new Binary.ObjectId().encode('5bdad1bb9451b44a137f2f53').length, 16);
+    });
+});

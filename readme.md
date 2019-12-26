@@ -95,6 +95,10 @@
     encoder.encode('success');  // A
     encoder.encode('error');  // B
     encoder.encode('somevalue');  // TypeError: Unexpected value of enum
+    
+### `Binary.ObjectId`
+
+Кодирует MongoDB ObjectId в 64-ричный код. На треть сжимает объём текстового представления ObjectId.
 
 ### `Binary.ArrayOf`
 
