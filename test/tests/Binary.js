@@ -97,3 +97,13 @@ describe('Binary.ObjectId', function() {
         chai.assert.equal(new Binary.ObjectId().encode('5bdad1bb9451b44a137f2f53').length, 16);
     });
 });
+
+describe('Binary.HexColor', function() {
+    check('#cdef34', new Binary.HexColor(), '#cdef34');
+    check('#cdef345', new Binary.HexColor(), '#cdef345', TypeError);
+    check('#cdef', new Binary.HexColor(), '#cdef', TypeError);
+    it('#abc', function() {
+        let encoder = new Binary.HexColor();
+        chai.assert.equal(encoder.decode(encoder.encode('#abc')), '#aabbcc');
+    });
+});
