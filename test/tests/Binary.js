@@ -80,3 +80,10 @@ describe('Binary.Packet', function() {
         chai.assert.deepEqual(packet2.decode(packet1.encode({foo: 1})), {foo: 1});
     });
 });
+
+describe('Binary.Enum', function() {
+    check('Existing value', new Binary.Enum(['value1', 'value2']), 'value2');
+    check('Not existing value', new Binary.Enum(['value1', 'value2']), 'value3', TypeError);
+    check('Numeric values', new Binary.Enum([1, 2, 3]), 3);
+    check('Numeric enum encodes string value', new Binary.Enum([1, 2, 3]), '2', TypeError);
+});

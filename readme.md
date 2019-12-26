@@ -2,6 +2,8 @@
 
 Библиотека кодирования данных в бинарный 6-битный формат (символы из алфавита base64, адаптированного для использования в URL). Код оформлен в методологии [DressCode](https://github.com/Kolyaj/DressCodeJS).
 
+Основная цель создания библиотеки – сохранение данных в localStorage, когда это основное хранилище данных. Binary кодирует данные более компактно и обфусцированно, чем JSON. Можно использовать Binary и для передачи данных с сервера, что уменьшит трафик, но добавит необходимость описания схемы данных.
+
 Для подключения выполните `npm i dresscode-binary` и добавьте в файл .dresscode строку `path-to-node_modules/dresscode-binary/lib`.
 
 ## Философия
@@ -84,6 +86,15 @@
 ### `Binary.Date`
 
 Кодирует объект `Date`.
+
+### `Binary.Enum`
+
+Кодирует одно из предзаданных значений. Сохраняет не само значение, а его индекс в предзаданном массиве.
+
+    var encoder = new Binary.Enum(['success', 'error']);
+    encoder.encode('success');  // A
+    encoder.encode('error');  // B
+    encoder.encode('somevalue');  // TypeError: Unexpected value of enum
 
 ### `Binary.ArrayOf`
 
