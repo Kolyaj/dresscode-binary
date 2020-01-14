@@ -6,7 +6,6 @@ function check(message, type, value, err) {
             }, err);
         } else {
             var data = type.encode(value);
-            chai.assert.isOk(/^[a-zA-Z0-9*-]+$/.test(data));
             chai.assert.deepEqual(type.decode(data), value);
         }
     });
@@ -115,4 +114,8 @@ describe('Binary.FixedFloat', function() {
         var encoder = new Binary.FixedFloat(2);
         chai.assert.equal(encoder.decode(encoder.encode(1.234)), 1.23);
     })
+});
+
+describe('Binary.UnsafeString', function() {
+    check('Какая-то строка русскими буквами', new Binary.UnsafeString(), 'Какая-то строка русскими буквами');
 });
