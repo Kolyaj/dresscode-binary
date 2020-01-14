@@ -103,7 +103,16 @@ describe('Binary.HexColor', function() {
     check('#cdef345', new Binary.HexColor(), '#cdef345', TypeError);
     check('#cdef', new Binary.HexColor(), '#cdef', TypeError);
     it('#abc', function() {
-        let encoder = new Binary.HexColor();
+        var encoder = new Binary.HexColor();
         chai.assert.equal(encoder.decode(encoder.encode('#abc')), '#aabbcc');
     });
+});
+
+describe('Binary.FixedFloat', function() {
+    check('5', new Binary.FixedFloat(2, 0), 5);
+    check('1.23', new Binary.FixedFloat(3, 0), 1.23);
+    it('1.234 and 2 fraction digits', function() {
+        var encoder = new Binary.FixedFloat(2);
+        chai.assert.equal(encoder.decode(encoder.encode(1.234)), 1.23);
+    })
 });
