@@ -116,9 +116,13 @@
 
 ### `Binary.Bitmap`
 
-Кодирует массив булевых значений в битовую маску.
+Кодирует массив булевых значений в битовую маску. Максимальная длина маски – 52.
 
     new Binary.Bitmap().encode([true, false, true, false]); // a
+    
+### `Binary.BigBitmap`
+
+Кодирует битовые маски любой длины. По факту удобная обёртка вокруг `new Binary.ArrayOf(new Binary.Bitmap())`.
 
 ### `Binary.UnsafeString`
 

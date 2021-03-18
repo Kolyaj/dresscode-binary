@@ -56,6 +56,18 @@ describe('Binary.String', function() {
 describe('Binary.Bitmap', function() {
     check('new Binary.Bitmap(), [true, false, true]', new Binary.Bitmap(), [true, false, true]);
     check('new Binary.Bitmap(), [false, true, false]', new Binary.Bitmap(), [false, true, false]);
+    check('bitmap with length 52', new Binary.Bitmap(), Bricks.range(52).map(function() {
+        return Math.random() < 0.5;
+    }));
+});
+
+describe('Binary.BigBitmap', function() {
+    check('bitmap with length 100', new Binary.BigBitmap(), Bricks.range(100).map(function() {
+        return Math.random() < 0.5;
+    }));
+    check('bitmap with length 1000', new Binary.BigBitmap(), Bricks.range(1000).map(function() {
+        return Math.random() < 0.5;
+    }));
 });
 
 describe('Binary.ArrayOf', function() {
