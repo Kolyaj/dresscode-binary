@@ -92,6 +92,17 @@ describe('Binary.Packet', function() {
     });
 });
 
+describe('Binary.BigPacket', function() {
+    var schema = {};
+    var data = {};
+    for (var i = 0; i < 31; i++) {
+        var key = 'key-' + i;
+        schema[key] = new Binary.Int();
+        data[key] = 1;
+    }
+    check('Packet with many fields', new Binary.Packet(schema), data);
+});
+
 describe('Binary.Enum', function() {
     check('Existing value', new Binary.Enum(['value1', 'value2']), 'value2');
     check('Not existing value', new Binary.Enum(['value1', 'value2']), 'value3', TypeError);
