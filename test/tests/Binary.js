@@ -90,6 +90,25 @@ describe('Binary.Packet', function() {
         });
         chai.assert.deepEqual(packet2.decode(packet1.encode({foo: 1})), {foo: 1});
     });
+
+    it('Error message enrichment', function() {
+        var packet = new Binary.Packet({
+            foo: new Binary.Int(0),
+            bar: new Binary.Packet({
+                baz: new Binary.Int(0)
+            })
+        });
+        try {
+            packet.encode({foo: -1});
+        } catch (err) {
+            chai.assert.equal(err.message, 'value must be >= 0. Encoding foo.');
+        }
+        try {
+            packet.encode({bar: {baz: -1}});
+        } catch (err) {
+            chai.assert.equal(err.message, 'value must be >= 0. Encoding baz. Encoding bar.');
+        }
+    });
 });
 
 describe('Binary.BigPacket', function() {
